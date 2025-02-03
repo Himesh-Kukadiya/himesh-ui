@@ -1,7 +1,8 @@
+import { Button } from "."
 
 const app = () => {
   return (
-    <div>app</div>
+    <Button bg={"green"} text={"red"} title={"click me"} onClick={() => { alert("button clicked") }} />
   )
 }
 

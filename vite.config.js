@@ -1,7 +1,21 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
+import { defineConfig } from 'vite';
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-})
+  build: {
+    lib: {
+      entry: './src/index.js', // Main entry for your library
+      name: 'himesh-ui',
+      fileName: (format) => `himesh-ui.${format}.js`,
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'], // Exclude React from the bundle
+      output: {
+        globals: {
+          react: 'React',
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
+  },
+});
